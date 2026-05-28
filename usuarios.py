@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 def registrar_acceso(username, accion):
-    ruta = Path.home() / "Downloads" / "accesos.json"
+    ruta = Path.cwd() / "accesos.json"
     
     acceso_data = {
         "usuario": username,
@@ -24,7 +24,7 @@ def registrar_acceso(username, accion):
 
 
 def guardar_usuario(username, password):
-    ruta = Path.home() / "Downloads" / "usuarios.json"
+    ruta = Path.cwd() / "usuarios.json"
     
     usuarios = []
     if ruta.exists():
@@ -45,7 +45,7 @@ def guardar_usuario(username, password):
 
 
 def login_usuario(username, password):
-    ruta = Path.home() / "Downloads" / "usuarios.json"
+    ruta = Path.cwd() / "usuarios.json"
     
     if not ruta.exists():
         print("⚠ No hay usuarios registrados.")
@@ -66,7 +66,7 @@ def login_usuario(username, password):
 
 def exportar_resumen(ruta):
     ruta_path = Path(ruta)
-    ruta_accesos = Path.home() / "Downloads" / "accesos.json"
+    ruta_accesos = Path.cwd() / "accesos.json"
     
     if not ruta_accesos.exists():
         print("No hay registros de accesos.")

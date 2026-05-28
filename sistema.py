@@ -22,8 +22,8 @@ def cargar_datos_iniciales():
     """Carga automáticamente usuarios, accesos y empresas guardadas al iniciar"""
     global empresas, clientes
     
-    ruta_usuarios = Path.home() / "Downloads" / "usuarios.json"
-    ruta_accesos = Path.home() / "Downloads" / "accesos.json"
+    ruta_usuarios = Path.cwd() / "usuarios.json"
+    ruta_accesos = Path.cwd() / "accesos.json"
     
     print("\n" + "="*50)
     print("📂 Cargando datos del sistema...")
@@ -464,8 +464,8 @@ def menu_empresa(empresa):
         
         
         elif opcion == '9':
-            ruta_productos = Path.home() / "Downloads" / f"productos_{empresa.nombre}.json"
-            ruta_clientes = Path.home() / "Downloads" / f"clientes_{empresa.nombre}.json"
+            ruta_productos = Path.cwd() / f"productos_{empresa.nombre}.json"
+            ruta_clientes = Path.cwd() / f"clientes_{empresa.nombre}.json"
             
             print("\n--- Guardando Datos ---")
             guardar_inventario(inventario.productos, ruta_productos)
@@ -481,7 +481,7 @@ def menu_empresa(empresa):
                     clientes_verificados = json.load(f)
                 print(f"✓ {len(clientes_verificados)} clientes guardados correctamente")
                 
-                print("✓ Datos guardados y verificados en Downloads")
+                print("✓ Datos guardados y verificados en la carpeta actual")
             except Exception as e:
                 print(f"⚠ Error al verificar integridad: {e}")
             
@@ -489,8 +489,8 @@ def menu_empresa(empresa):
         
         
         elif opcion == '10':
-            ruta_productos = Path.home() / "Downloads" / f"productos_{empresa.nombre}.json"
-            ruta_clientes = Path.home() / "Downloads" / f"clientes_{empresa.nombre}.json"
+            ruta_productos = Path.cwd() / f"productos_{empresa.nombre}.json"
+            ruta_clientes = Path.cwd() / f"clientes_{empresa.nombre}.json"
             
             productos_cargados = cargar_inventario(ruta_productos)
             clientes_cargados = cargar_clientes(ruta_clientes)
